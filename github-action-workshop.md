@@ -1,6 +1,7 @@
 ## Titel
-Github Actions - Entwickler lassen arbeiten
+Github Actions
 
+Automatische Workflows für Continuous Integration (CI) und vieles mehr
 ## Typ
 Workshop
 
