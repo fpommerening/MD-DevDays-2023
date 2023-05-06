@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coffeemaker-dep
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: coffeemaker-app
+  template:
+    metadata:
+      labels:
+        app: coffeemaker-app        
+    spec:
+      containers:
+      - name: app
+        image: fpommerening/container-training:coffeemaker
+        imagePullPolicy: Always
+        ports:
+        - name: liveness-port
+          containerPort: 80
+        

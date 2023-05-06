@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: coffeemaker-ir
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`coffeemaker.t.container-training.de`)
+    kind: Rule
+    services:
+    - name: coffeemaker-srv
+      port: 80

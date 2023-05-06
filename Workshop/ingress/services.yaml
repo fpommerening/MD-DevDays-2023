@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: citytrip-assets-srv
+spec:
+   ports:
+      - port: 80
+        name: http
+   selector:
+      app: citytrip-assets
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: citytrip-app-srv
+spec:
+   ports:
+      - port: 80
+        name: http
+   selector:
+      app: citytrip-app
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: citytrip-internal-srv
+spec:
+   ports:
+      - port: 80
+        name: http
+   selector:
+      app: citytrip-internal

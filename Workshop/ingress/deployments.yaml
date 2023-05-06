@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: citytrip-assets-dep
+spec:
+  selector:
+    matchLabels:
+      app: citytrip-assets
+  template:
+    metadata:
+      labels:
+        app: citytrip-assets
+    spec:
+      containers:
+      - name: app
+        image: fpommerening/container-training:citytrip.assets
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: citytrip-app-dep
+spec:
+  selector:
+    matchLabels:
+      app: citytrip-app
+  template:
+    metadata:
+      labels:
+        app: citytrip-app
+    spec:
+      containers:
+      - name: app
+        image: fpommerening/container-training:citytrip.app
+        env:
+        - name: BaseUrl
+          value: "http://assets.t.container-training.de"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: citytrip-internal-dep
+spec:
+  selector:
+    matchLabels:
+      app: citytrip-internal
+  template:
+    metadata:
+      labels:
+        app: citytrip-internal
+    spec:
+      containers:
+      - name: app
+        image: fpommerening/container-training:citytrip.internal
+        
