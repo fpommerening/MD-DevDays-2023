@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`coffeemaker.t.container-training.de`)
+  - match: Host(`coffeemaker.a13.container-training.de`)
     kind: Rule
     services:
     - name: coffeemaker-srv

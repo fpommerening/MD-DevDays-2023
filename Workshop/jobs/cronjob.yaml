@@ -3,6 +3,13 @@ kind: CronJob
 metadata:
   name: my-cronjob
 spec:
-  schedule:
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
+      template:
+        spec:
+          containers:
+          - name: app
+            image: busybox:1.28
+            command: ["sh", "-c", "echo The app is running! && sleep 45 && echo The work is done!"]
+          restartPolicy: OnFailure

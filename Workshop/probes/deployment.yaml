@@ -19,4 +19,15 @@ spec:
         ports:
         - name: liveness-port
           containerPort: 80
-        
+        livenessProbe:
+          httpGet:
+            path: /probe/alive
+            port: liveness-port
+          initialDelaySeconds: 3
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /probe/ready
+            port: liveness-port
+          periodSeconds: 2
+          initialDelaySeconds: 3
