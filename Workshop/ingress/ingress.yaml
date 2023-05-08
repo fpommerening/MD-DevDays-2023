@@ -4,3 +4,30 @@ metadata:
   name: city-trip-in
 spec:
   rules:
+  - host: citytrip.a13.container-training.de
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: citytrip-app-srv
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/internal"
+        backend:
+          service:
+            name: citytrip-internal-srv
+            port:
+              number: 80
+  - host: assets.a13.container-training.de
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: citytrip-assets-srv
+            port:
+              number: 80

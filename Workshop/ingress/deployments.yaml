@@ -33,7 +33,7 @@ spec:
         image: fpommerening/container-training:citytrip.app
         env:
         - name: BaseUrl
-          value: "http://assets.t.container-training.de"
+          value: "http://assets.a13.container-training.de"
 ---
 apiVersion: apps/v1
 kind: Deployment
